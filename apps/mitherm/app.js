@@ -20,13 +20,13 @@ const scan = function() {
   if (!scanning) { // Don't start scanning if already doing so.
     scanning = true;
     if (timeoutScan) clearTimeout(timeoutScan);
-    timeoutScan = setTimeout(scan, 300000); // Scan again in 5 minutes.
+    timeoutScan = setTimeout(scan, 60000); // Scan again in 2 minutes.
     drawScanState(scanning);
     NRF.findDevices(function(devices) {
       onDevices(devices);
     }, {
       filters: filterTemperature,
-      timeout: 30000  // Scan for 30s
+      timeout: 10000  // Scan for 10s
     });
   }
 };
